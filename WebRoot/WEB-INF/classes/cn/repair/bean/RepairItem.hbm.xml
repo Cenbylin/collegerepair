@@ -25,5 +25,8 @@
         <property name="itemType" type="java.lang.Integer">
             <column name="item_type" />
         </property>
+        <property name="itemState" type="java.lang.Integer">
+            <column name="item_state" />
+        </property>
     </class>
 </hibernate-mapping>

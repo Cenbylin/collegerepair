@@ -8,12 +8,17 @@ public class RepairItem implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer itemId;
 	private Integer userId;
 	private String itemPhone;
 	private String itemAddress;
 	private String itemDesc;
 	private Integer itemType;
+	private Integer itemState;
 
 	// Constructors
 
@@ -23,12 +28,13 @@ public class RepairItem implements java.io.Serializable {
 
 	/** full constructor */
 	public RepairItem(Integer userId, String itemPhone, String itemAddress,
-			String itemDesc, Integer itemType) {
+			String itemDesc, Integer itemType, Integer itemState) {
 		this.userId = userId;
 		this.itemPhone = itemPhone;
 		this.itemAddress = itemAddress;
 		this.itemDesc = itemDesc;
 		this.itemType = itemType;
+		this.itemState = itemState;
 	}
 
 	// Property accessors
@@ -79,6 +85,14 @@ public class RepairItem implements java.io.Serializable {
 
 	public void setItemType(Integer itemType) {
 		this.itemType = itemType;
+	}
+
+	public Integer getItemState() {
+		return this.itemState;
+	}
+
+	public void setItemState(Integer itemState) {
+		this.itemState = itemState;
 	}
 
 }

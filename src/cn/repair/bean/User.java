@@ -8,6 +8,10 @@ public class User implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer userId;
 	private String userAccount;
 	private String userPassword;
@@ -15,7 +19,7 @@ public class User implements java.io.Serializable {
 	private Integer userSex;
 	private String userPhone;
 	private String userAddress;
-	private Integer userManager;
+	private Integer userManager;//1为是管理员 0不是
 
 	// Constructors
 

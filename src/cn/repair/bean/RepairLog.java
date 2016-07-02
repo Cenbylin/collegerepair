@@ -8,6 +8,10 @@ public class RepairLog implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer logId;
 	private Integer itemId;
 	private Integer userId;
