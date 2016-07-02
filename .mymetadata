@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="collegerepair"
+  id="myeclipse.1467460536047"
+  context-root="/collegerepair"
+  j2ee-spec="6.0"
+  archive="collegerepair.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
