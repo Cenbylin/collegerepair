@@ -11,13 +11,14 @@ import org.hibernate.criterion.Restrictions;
 
 import cn.repair.bean.User;
 import cn.repair.dao.DaoFactory;
+import cn.repair.dao.UserDao;
 
 /**
  * 用户
  * @author Cenby7
  *
  */
-public class UserDaoImpl {
+public class UserDaoImpl implements UserDao{
 	private static UserDaoImpl instance;
 	/**私有构造方法*/
 	private UserDaoImpl(){}
@@ -85,7 +86,7 @@ public class UserDaoImpl {
 					.list();
 			//查询到
 			if(users!=null && users.size()>0){
-				return user;
+				return users.get(0);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

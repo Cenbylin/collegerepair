@@ -10,9 +10,9 @@
             <column name="item_id" />
             <generator class="increment" />
         </id>
-        <property name="userId" type="java.lang.Integer">
+        <!-- <property name="userId" type="java.lang.Integer">
             <column name="user_id" />
-        </property>
+        </property> -->
         <property name="itemPhone" type="java.lang.String">
             <column name="item_phone" length="20" />
         </property>
@@ -28,5 +28,7 @@
         <property name="itemState" type="java.lang.Integer">
             <column name="item_state" />
         </property>
+        
+        <many-to-one name="user" column="user_id" class="cn.repair.bean.User" cascade="none" lazy="proxy" />
     </class>
 </hibernate-mapping>

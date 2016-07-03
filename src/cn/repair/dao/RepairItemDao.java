@@ -1,17 +1,18 @@
 package cn.repair.dao;
 
 import java.util.List;
+
 import cn.repair.bean.RepairItem;
 
 public interface RepairItemDao {
 	/**
 	 * 增加报修
 	 */
-	public String addRepairItem();
+	public String addRepairItem(RepairItem repairItem);
 	/**
 	 * 修改报修
 	 */
-	public String updateRepairItem();
+	public String updateRepairItem(RepairItem repairItem);
 	/**
 	 * 查询所有报修--分页
 	 */

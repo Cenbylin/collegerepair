@@ -13,12 +13,12 @@ public class RepairItem implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer itemId;
-	private Integer userId;
 	private String itemPhone;
 	private String itemAddress;
+	private User user;
 	private String itemDesc;
 	private Integer itemType;
-	private Integer itemState;
+	private Integer itemState = 0;//0刚发起，1开始受理，2受理完毕
 
 	// Constructors
 
@@ -29,7 +29,6 @@ public class RepairItem implements java.io.Serializable {
 	/** full constructor */
 	public RepairItem(Integer userId, String itemPhone, String itemAddress,
 			String itemDesc, Integer itemType, Integer itemState) {
-		this.userId = userId;
 		this.itemPhone = itemPhone;
 		this.itemAddress = itemAddress;
 		this.itemDesc = itemDesc;
@@ -45,14 +44,6 @@ public class RepairItem implements java.io.Serializable {
 
 	public void setItemId(Integer itemId) {
 		this.itemId = itemId;
-	}
-
-	public Integer getUserId() {
-		return this.userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
 	}
 
 	public String getItemPhone() {
@@ -93,6 +84,14 @@ public class RepairItem implements java.io.Serializable {
 
 	public void setItemState(Integer itemState) {
 		this.itemState = itemState;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

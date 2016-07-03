@@ -3,6 +3,8 @@ package cn.repair.dao;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import cn.repair.dao.impl.RepairItemDaoImpl;
+import cn.repair.dao.impl.RepairLogDaoImpl;
 import cn.repair.dao.impl.UserDaoImpl;
 
 /**
@@ -23,4 +25,12 @@ public class DaoFactory {
 	public static UserDaoImpl getUserDao(){
 		return UserDaoImpl.getUserDao();
 	}
+	//拿到RepaiItemDao
+	public static RepairItemDao getRepairItemDao(){
+		return RepairItemDaoImpl.getRepairItemDao();
+	} 
+	//拿到RepaiLogDao
+	public static RepairLogDao getRepaiLogDao(){
+		return RepairLogDaoImpl.getRepairLogDao();
+	} 
 }
