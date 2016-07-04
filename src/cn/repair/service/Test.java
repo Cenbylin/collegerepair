@@ -3,7 +3,7 @@ package cn.repair.service;
 import cn.repair.bean.RepairItem;
 import cn.repair.bean.RepairLog;
 import cn.repair.bean.User;
-import cn.repair.dao.DaoFactory;
+import cn.repair.core.DaoFactory;
 import cn.repair.dao.RepairItemDao;
 import cn.repair.dao.RepairLogDao;
 import cn.repair.dao.UserDao;

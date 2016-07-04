@@ -17,7 +17,7 @@ public class RepairLog implements java.io.Serializable {
 	private String logTime;
 	private User user;
 	private RepairItem repairItem;
-	private Integer logType;
+	private Integer logType;//在常量池
 	private String logMsg;
 
 	// Constructors

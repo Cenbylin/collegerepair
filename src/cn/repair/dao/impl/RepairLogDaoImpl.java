@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import cn.repair.bean.RepairLog;
-import cn.repair.dao.DaoFactory;
+import cn.repair.core.DaoFactory;
 import cn.repair.dao.RepairLogDao;
 
 public class RepairLogDaoImpl implements RepairLogDao {

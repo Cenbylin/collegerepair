@@ -11,7 +11,7 @@ import org.hibernate.criterion.Restrictions;
 
 import cn.repair.bean.RepairItem;
 import cn.repair.bean.User;
-import cn.repair.dao.DaoFactory;
+import cn.repair.core.DaoFactory;
 import cn.repair.dao.RepairItemDao;
 
 public class RepairItemDaoImpl implements RepairItemDao{

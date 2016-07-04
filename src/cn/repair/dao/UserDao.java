@@ -29,4 +29,8 @@ public interface UserDao {
 	 * 查询用户--条件查询分页
 	 */
 	public List<User> queryUserByCondition(User user, final int pageSize,final int pageNum);
+	/**
+	 * 查询用户--根据Id
+	 */
+	public User getUserById(Integer id);
 }

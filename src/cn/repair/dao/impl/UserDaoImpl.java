@@ -10,7 +10,7 @@ import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 
 import cn.repair.bean.User;
-import cn.repair.dao.DaoFactory;
+import cn.repair.core.DaoFactory;
 import cn.repair.dao.UserDao;
 
 /**
@@ -215,6 +215,27 @@ public class UserDaoImpl implements UserDao{
 			//其他条件
 			List<User> users = dc.setFetchSize(pageSize*(pageNum-1)).setMaxResults(pageSize).addOrder(Property.forName("userId").desc()).list();
 			return users;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				if (session.isOpen()) {
+					// 关闭session
+					session.close();
+				}
+			}
+		}
+		return null;
+	}
+	@Override
+	public User getUserById(Integer id) {
+		SessionFactory factory = DaoFactory.getSessionFactory();
+		Session session = null;
+		try {
+			session = factory.openSession();
+			//查询
+			User user = session.get(User.class, id);
+			return user;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

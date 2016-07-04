@@ -4,7 +4,61 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-  <display-name></display-name>	
+  <display-name></display-name>
+  <servlet>
+    <servlet-name>UserLogin</servlet-name>
+    <servlet-class>cn.repair.servlet.user.UserLogin</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryUsers</servlet-name>
+    <servlet-class>cn.repair.servlet.user.QueryUsers</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SetManage</servlet-name>
+    <servlet-class>cn.repair.servlet.user.SetManage</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateUser</servlet-name>
+    <servlet-class>cn.repair.servlet.user.UpdateUser</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EditUserPassword</servlet-name>
+    <servlet-class>cn.repair.servlet.user.EditUserPassword</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RegUser</servlet-name>
+    <servlet-class>cn.repair.servlet.user.RegUser</servlet-class>
+  </servlet>
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>UserLogin</servlet-name>
+    <url-pattern>/UserLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryUsers</servlet-name>
+    <url-pattern>/QueryUsers</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SetManage</servlet-name>
+    <url-pattern>/SetManage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateUser</servlet-name>
+    <url-pattern>/UpdateUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditUserPassword</servlet-name>
+    <url-pattern>/EditUserPassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegUser</servlet-name>
+    <url-pattern>/RegUser</url-pattern>
+  </servlet-mapping>	
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

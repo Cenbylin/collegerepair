@@ -1,8 +1,10 @@
-package cn.repair.dao;
+package cn.repair.core;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import cn.repair.dao.RepairItemDao;
+import cn.repair.dao.RepairLogDao;
 import cn.repair.dao.impl.RepairItemDaoImpl;
 import cn.repair.dao.impl.RepairLogDaoImpl;
 import cn.repair.dao.impl.UserDaoImpl;
