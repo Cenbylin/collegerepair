@@ -30,7 +30,7 @@ public class UserService {
 	 */
 	public Pager queryUsers(Pager pager, User bean, User loginUser){
 		//判断是否登陆，并且是管理员
-		if(loginUser!=null && loginUser.getUserManager()==1){
+		if(loginUser!=null && loginUser.getUserManager()==Constants.USER_ROLE_MANAGER){
 			UserDao userDao = DaoFactory.getUserDao();
 			//分页查询
 			List<User> users = userDao.queryUserByCondition(bean, pager.getPageSize(), pager.getPageNumber());

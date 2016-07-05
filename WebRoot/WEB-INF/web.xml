@@ -29,6 +29,39 @@
     <servlet-name>RegUser</servlet-name>
     <servlet-class>cn.repair.servlet.user.RegUser</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>QueryRepairItem</servlet-name>
+    <servlet-class>cn.repair.servlet.repairitem.QueryRepairItem</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryUserItem</servlet-name>
+    <servlet-class>cn.repair.servlet.repairitem.QueryUserItem</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryRepairLog</servlet-name>
+    <servlet-class>cn.repair.servlet.repairlog.QueryRepairLog</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddRepairLog</servlet-name>
+    <servlet-class>cn.repair.servlet.repairlog.AddRepairLog</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddRepairItem</servlet-name>
+    <servlet-class>cn.repair.servlet.repairitem.AddRepairItem</servlet-class>
+  </servlet>
+
+
+	<filter>
+		<filter-name>loginFilter</filter-name>
+		<filter-class>cn.repair.core.LoginFilter</filter-class>
+	</filter>
+	<!--映射过滤器 
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>-->
+
+
 
 
 
@@ -58,6 +91,26 @@
   <servlet-mapping>
     <servlet-name>RegUser</servlet-name>
     <url-pattern>/RegUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryRepairItem</servlet-name>
+    <url-pattern>/QueryRepairItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryUserItem</servlet-name>
+    <url-pattern>/QueryUserItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryRepairLog</servlet-name>
+    <url-pattern>/QueryRepairLog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddRepairLog</servlet-name>
+    <url-pattern>/AddRepairLog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddRepairItem</servlet-name>
+    <url-pattern>/AddRepairItem</url-pattern>
   </servlet-mapping>	
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

@@ -21,4 +21,12 @@ public interface RepairItemDao {
 	 * 查询报修--条件查询分页
 	 */
 	public List<RepairItem> queryRepairItemByCondition(RepairItem repairItem, final int pageSize,final int pageNum);
+	/**
+	 * 查询报修--id
+	 */
+	public RepairItem queryRepairItemById(int id);
+	/**
+	 * 查询报修--单个用户
+	 */
+	public List<RepairItem> queryRepairItemByUserId(int userId, final int pageSize,final int pageNum);
 }

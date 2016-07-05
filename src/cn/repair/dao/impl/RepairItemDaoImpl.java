@@ -10,7 +10,6 @@ import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 
 import cn.repair.bean.RepairItem;
-import cn.repair.bean.User;
 import cn.repair.core.DaoFactory;
 import cn.repair.dao.RepairItemDao;
 
@@ -94,10 +93,7 @@ public class RepairItemDaoImpl implements RepairItemDao{
 		try {
 			session = factory.openSession();
 			//动态查询
-			Criteria dc = session.createCriteria(User.class);
-			if(repairItem.getItemState()!=null){
-				dc.add(Restrictions.eq("itemState", repairItem.getItemState()));
-			}
+			Criteria dc = session.createCriteria(RepairItem.class);
 			if(repairItem.getItemState()!=null){
 				dc.add(Restrictions.eq("itemState", repairItem.getItemState()));
 			}
@@ -144,5 +140,54 @@ public class RepairItemDaoImpl implements RepairItemDao{
 			}
 		}
 		return msg;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<RepairItem> queryRepairItemByUserId(int userId, int pageSize,
+			int pageNum) {
+		SessionFactory factory = DaoFactory.getSessionFactory();
+		Session session = null;
+		try {
+			session = factory.openSession();
+			//查询
+			List<RepairItem> items = session.createQuery("from RepairItem where user.userId=? order by id desc")
+					.setParameter(0, userId)
+					.setFetchSize(pageSize*(pageNum-1))
+					.setMaxResults(pageSize)
+					.list();
+			return items;
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 回滚事务
+		} finally {
+			if (session != null) {
+				if (session.isOpen()) {
+					// 关闭session
+					session.close();
+				}
+			}
+		}
+		return null;
+	}
+	@Override
+	public RepairItem queryRepairItemById(int id) {
+		SessionFactory factory = DaoFactory.getSessionFactory();
+		Session session = null;
+		try {
+			session = factory.openSession();
+			//查询
+			return session.get(RepairItem.class, id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				if (session.isOpen()) {
+					// 关闭session
+					session.close();
+				}
+			}
+		}
+		return null;
 	}
 }

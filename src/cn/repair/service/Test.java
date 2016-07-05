@@ -1,5 +1,7 @@
 package cn.repair.service;
 
+import java.util.List;
+
 import cn.repair.bean.RepairItem;
 import cn.repair.bean.RepairLog;
 import cn.repair.bean.User;
@@ -7,6 +9,7 @@ import cn.repair.core.DaoFactory;
 import cn.repair.dao.RepairItemDao;
 import cn.repair.dao.RepairLogDao;
 import cn.repair.dao.UserDao;
+import cn.repair.utils.Constants;
 
 public class Test {
 
@@ -14,6 +17,7 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
 		UserDao userDao = DaoFactory.getUserDao();
 		User user = new User();
 		user.setUserAccount("admin");
@@ -39,6 +43,12 @@ public class Test {
 		RepairLogDao repairLogDao = DaoFactory.getRepaiLogDao();
 		RepairLog repairLog = new RepairLog();
 		repairLogDao.addRepairLog(repairLog);
+		
+		//模拟查询记录
+		RepairItem beanItem = new RepairItem();
+		beanItem.setItemState(Constants.ITEM_STATE_DOING);
+		List<RepairItem> repairItems = repairItemDao.queryRepairItemByCondition(beanItem, 5, 1);
+		System.out.println(repairItems);
 	}
 
 }

@@ -26,7 +26,7 @@
             <column name="log_msg" length="50" />
         </property>
         
-        <many-to-one name="user" column="user_id" class="cn.repair.bean.User" cascade="none" lazy="proxy" />
-        <many-to-one name="repairItem" column="item_id" class="cn.repair.bean.RepairItem" cascade="none" lazy="proxy" />
+        <many-to-one name="user" column="user_id" class="cn.repair.bean.User" cascade="none" lazy="false" />
+        <many-to-one name="repairItem" column="item_id" class="cn.repair.bean.RepairItem" cascade="none" lazy="false" />
     </class>
 </hibernate-mapping>

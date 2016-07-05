@@ -1,0 +1,33 @@
+.tab{
+	padding: 5px;
+}
+.tab .tab-body-bordered{
+	border: 0px;
+}
+.titleImg{
+	margin-bottom: 30px;
+}
+.tab-panel{
+	margin: 0 auto;
+	margin-top: 40px;
+}
+.form-group{
+	margin-top: 15px;
+}
+.form-group .input{
+	width: 100%;
+}
+.form-button button{
+	width: 49%;
+	display: inline-block;
+}
+.team{
+	display: inline-block;
+	font-size: 10px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #999999;
+	float: right;
+	line-height: 12px;
+	padding: 2px;
+}

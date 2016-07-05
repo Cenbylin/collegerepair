@@ -17,8 +17,9 @@ public class RepairItem implements java.io.Serializable {
 	private String itemAddress;
 	private User user;
 	private String itemDesc;
+	private String itemTime;
 	private Integer itemType;
-	private Integer itemState = 0;//0刚发起，1开始受理，2受理完毕
+	private Integer itemState=0;//0刚发起，1开始受理，2受理完毕
 
 	// Constructors
 
@@ -92,6 +93,14 @@ public class RepairItem implements java.io.Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getItemTime() {
+		return itemTime;
+	}
+
+	public void setItemTime(String itemTime) {
+		this.itemTime = itemTime;
 	}
 
 }

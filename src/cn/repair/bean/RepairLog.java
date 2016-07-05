@@ -13,7 +13,6 @@ public class RepairLog implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer logId;
-	private Integer userId;
 	private String logTime;
 	private User user;
 	private RepairItem repairItem;
@@ -29,7 +28,6 @@ public class RepairLog implements java.io.Serializable {
 	/** full constructor */
 	public RepairLog(Integer itemId, Integer userId, String logTime,
 			Integer logType, String logMsg) {
-		this.userId = userId;
 		this.logTime = logTime;
 		this.logType = logType;
 		this.logMsg = logMsg;
@@ -43,14 +41,6 @@ public class RepairLog implements java.io.Serializable {
 
 	public void setLogId(Integer logId) {
 		this.logId = logId;
-	}
-
-	public Integer getUserId() {
-		return this.userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
 	}
 
 	public String getLogTime() {

@@ -13,4 +13,10 @@ public class Constants {
 	public static final Integer LOGTYPE_STATE=0;
 	/**报修日志-附加信息*/
 	public static final Integer LOGTYPE_MSG=1;
+	/**报修状态-未处理*/
+	public static final Integer ITEM_STATE_NO=0;
+	/**报修状态-处理中*/
+	public static final Integer ITEM_STATE_DOING=1;
+	/**报修状态-处理结束*/
+	public static final Integer ITEM_STATE_DONE=2;
 }

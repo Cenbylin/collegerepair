@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>校园保修系统</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="./css/pintuer.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+	<script type="text/javascript" src="js/pintuer.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/layer.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+					//校验登陆
+					$("#form1").validate({
+						submitHandler: function(form) {
+							// 执行提交
+							var postUrl = "UserLogin" ;
+							var param = $("#form1").serialize();
+							// 提交异步请求
+							$.post(postUrl,param,function(data){
+								if(data.state){
+									//执行跳转
+								}else{
+									layer.msg(data.msg);
+								}
+							},"json");
+						}
+					});
+					//校验注册
+					$("#form2").validate({
+						submitHandler: function(form) {
+							// 执行提交
+							var postUrl = "RegUser" ;
+							var param = $("#form2").serialize();
+							// 提交异步请求
+							$.post(postUrl,param,function(data){
+								if(data.state){
+									//执行跳转
+								}else{
+									layer.msg(data.msg);
+								}
+							},"json");
+						}
+					});
+				});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="tab">
+			<div class="tab-body tab-body-bordered">
+				<img src="./img/titleImg.jpg" class="img-responsive titleImg">
+				<div class="tab-panel active" id="userLogin">
+					<form id="form1" method="post" class="form-auto">
+						<div class="form-group">
+							<div class="field field-icon">
+								<span class="icon icon-user"></span>
+								<input type="text" class="input" id="userAccount" name="userAccount" data-validate="required:必填" placeholder="手机/邮箱/账号"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="field field-icon">
+								<span class="icon icon-key"></span>
+								<input type="password" class="input" id="userPassword" name="userPassword" data-validate="required:必填" placeholder="请输入密码"/>
+							</div>
+						</div>
+						<br>
+						<div class="form-button ">
+							<button class="button border-sub" name="reg">注册</button>
+							<button class="button border-main" name="login" type="submit">登录</button>
+						</div>
+					</form>
+				</div>
+				<hr>
+				<div class="team radius">呐呐团队</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(function(){
+		$(window).resize();
+	});
+	$(window).resize(function(){
+		$(".tab").css({
+			position: "absolute",
+			left: ($(window).width() - $(".tab").outerWidth())/2,
+			top: ($(window).height() - $(".tab").outerHeight())/2
+		});
+	});
+	</script>
+</body>
+</html>
