@@ -49,6 +49,16 @@
     <servlet-name>AddRepairItem</servlet-name>
     <servlet-class>cn.repair.servlet.repairitem.AddRepairItem</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DisposeRepair</servlet-name>
+    <servlet-class>cn.repair.servlet.repairitem.DisposeRepair</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DoneRepair</servlet-name>
+    <servlet-class>cn.repair.servlet.repairitem.DoneRepair</servlet-class>
+  </servlet>
+
+
 
 
 	<filter>
@@ -111,6 +121,14 @@
   <servlet-mapping>
     <servlet-name>AddRepairItem</servlet-name>
     <url-pattern>/AddRepairItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DisposeRepair</servlet-name>
+    <url-pattern>/DisposeRepair</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DoneRepair</servlet-name>
+    <url-pattern>/DoneRepair</url-pattern>
   </servlet-mapping>	
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

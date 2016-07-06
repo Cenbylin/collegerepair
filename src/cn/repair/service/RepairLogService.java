@@ -33,7 +33,13 @@ public class RepairLogService {
 		RepairLogDao repairLogDao = DaoFactory.getRepaiLogDao();
 		return repairLogDao.queryRepairLogByItemId(itemId);
 	}
-	
+	/**
+	 * 添加消息报修日志
+	 * @param itemId
+	 * @param logMsg
+	 * @param loginUser
+	 * @return
+	 */
 	public String addMsgRepairLog(int itemId, String logMsg, User loginUser){
 		String msg = "";
 		//验证身份
@@ -57,7 +63,27 @@ public class RepairLogService {
 		}else{
 			msg = "未登陆";
 		}
-		
+		return msg;
+	}
+	/**
+	 * 添加报修日志
+	 * @param repairLog
+	 * @param loginUser
+	 * @return
+	 */
+	public String addRepairLog(RepairLog bean, User loginUser){
+		String msg = "";
+		//验证身份
+		if (loginUser!=null) {
+			//设置数据
+			bean.setUser(loginUser);
+			bean.setLogTime(TimeUtil.getCurrTime(TimeUtil.Y_M_D_H_M));
+			//执行保存
+			RepairLogDao repairLogDao = DaoFactory.getRepaiLogDao();
+			msg = repairLogDao.addRepairLog(bean);
+		}else{
+			msg = "未登陆";
+		}
 		return msg;
 	}
 }

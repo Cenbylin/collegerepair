@@ -3,6 +3,7 @@ package cn.repair.service;
 import java.util.List;
 
 import cn.repair.bean.RepairItem;
+import cn.repair.bean.RepairLog;
 import cn.repair.bean.User;
 import cn.repair.core.DaoFactory;
 import cn.repair.dao.RepairItemDao;
@@ -21,7 +22,74 @@ public class RepairItemService {
 		}
 		return instance ;
 	}
-	
+	/**
+	 * 报修处理完毕
+	 * @param itemId
+	 * @param loginUser
+	 * @return
+	 */
+	public String doneRepairItem(int itemId, User loginUser){
+		String msg = "";
+		//判断用户权限
+		if(loginUser!=null && loginUser.getUserManager()==Constants.USER_ROLE_MANAGER){
+			RepairItemDao repairItemDao = DaoFactory.getRepairItemDao();
+			RepairItem bean = repairItemDao.queryRepairItemById(itemId);
+			if (bean!=null) {
+				//设置数据
+				bean.setItemState(Constants.ITEM_STATE_DONE);
+				msg = repairItemDao.updateRepairItem(bean);
+				//日志记录
+				RepairLog repairLog = new RepairLog();
+				repairLog.setRepairItem(bean);
+				repairLog.setLogMsg("处理完毕");
+				repairLog.setLogType(Constants.LOGTYPE_STATE);
+				RepairLogService repairLogService = RepairLogService.getInstance();
+				msg += repairLogService.addRepairLog(repairLog, loginUser);
+			}else{
+				msg = "不存在该项目";
+			}
+		}else {
+			msg = "未登陆";
+		}
+		return msg;
+	}
+	/**
+	 * 报修受理
+	 * @param itemId
+	 * @param loginUser
+	 * @return
+	 */
+	public String disposeRepairItem(int itemId, User loginUser){
+		String msg = "";
+		//判断用户权限
+		if(loginUser!=null && loginUser.getUserManager()==Constants.USER_ROLE_MANAGER){
+			RepairItemDao repairItemDao = DaoFactory.getRepairItemDao();
+			RepairItem bean = repairItemDao.queryRepairItemById(itemId);
+			if (bean!=null) {
+				//设置数据
+				bean.setItemState(Constants.ITEM_STATE_DOING);
+				msg = repairItemDao.updateRepairItem(bean);
+				//日志记录
+				RepairLog repairLog = new RepairLog();
+				repairLog.setRepairItem(bean);
+				repairLog.setLogMsg("已经由 "+loginUser.getUserName()+"受理");
+				repairLog.setLogType(Constants.LOGTYPE_STATE);
+				RepairLogService repairLogService = RepairLogService.getInstance();
+				msg += repairLogService.addRepairLog(repairLog, loginUser);
+			}else{
+				msg = "不存在该项目";
+			}
+		}else {
+			msg = "未登陆";
+		}
+		return msg;
+	}
+	/**
+	 * 新增报修项目
+	 * @param bean
+	 * @param loginUser
+	 * @return
+	 */
 	public String addRepairItem(RepairItem bean, User loginUser){
 		String msg = "";
 		//判断用户
