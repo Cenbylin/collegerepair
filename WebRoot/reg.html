@@ -12,20 +12,18 @@
 	<script type="text/javascript" src="js/layer.js"></script>
 	<script src="js/jquery.validate.min.js"></script>
 	<script type="text/javascript">
-		function toReg(){
-			window.location.href="reg.html";
-		}
 		$(document).ready(function() {
-					//校验登陆
-					$("#form1").validate({
+					//校验注册
+					$("#form2").validate({
 						submitHandler: function(form) {
 							// 执行提交
-							var postUrl = "UserLogin" ;
-							var param = $("#form1").serialize();
+							var postUrl = "RegUser" ;
+							var param = $("#form2").serialize();
 							// 提交异步请求
 							$.post(postUrl,param,function(data){
 								if(data.state){
 									//执行跳转
+									
 								}else{
 									layer.msg(data.msg);
 								}
@@ -39,43 +37,15 @@
 	<div class="container">
 		<div class="tab">
 			<div class="tab-body tab-body-bordered">
-
 				<img src="./img/titleImg.jpg" class="img-responsive titleImg">
 				<div class="tab-panel active" id="userLogin">
-					
-					<form id="form1" method="post" class="form-auto login">
-						<div class="form-group">
-							<div class="field field-icon">
-								<span class="icon icon-user"></span>
-								<input type="text" class="input" id="userAccount" name="userAccount" data-validate="required:必填" placeholder="手机/邮箱/账号"/>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="field field-icon">
-								<span class="icon icon-key"></span>
-								<input type="password" class="input" id="userPassword" name="userPassword" data-validate="required:必填" placeholder="请输入密码"/>
-							</div>
-						</div>
-						<br>
-						<div class="form-button ">
-							<button type="button" onClick="toReg();" class="button border-sub dialogs" data-toggle="click">注册</button>
-							<button class="button border-main" name="login" type="submit">登录</button>
-						</div>
-					</form>
-				</div>
-				<hr>
-				<div class="team radius">呐呐团队</div>
-				<!-- 注册窗口开始 -->
-				<div id="reg">
-					<div class="dialog">
-						<div class="dialog-body">
-							<form id="form2" method="post" class="form form-auto">
+					<form id="form2" method="post" class="form form-auto">
 								<div class="form-group">
 									<div class="label">
 										<label for="username"> 账号</label>
 									</div>
 									<div class="field">
-										<input type="text" class="input" id="regUserAccount" name="regUserAccount" data-validate="required:必填" placeholder="手机/邮箱/账号" required/>
+										<input type="text" class="input" id="regUserAccount" name="regUserAccount" data-validate="required:必填" placeholder="手机/邮箱/账号"/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -83,7 +53,7 @@
 										<label for="password"> 密码</label>
 									</div>
 									<div class="field">
-										<input type="password" class="input" id="regUserPassword" name="regUserPassword" data-validate="required:必填" placeholder="请输入密码" required/>
+										<input type="password" class="input" id="regUserPassword" name="regUserPassword" data-validate="required:必填" placeholder="请输入密码"/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -91,7 +61,7 @@
 										<label for="passwordRe"> 再次输入密码</label>
 									</div>
 									<div class="field">
-										<input type="password" class="input" id="regUserPasswordRe" name="regUserPasswordRe" data-validate="required:必填,repeat#password:两次输入的密码不一致" placeholder="请再输入密码" />
+										<input type="password" class="input" id="regUserPasswordRe" name="regUserPasswordRe" data-validate="required:必填,repeat#regUserPassword:两次输入的密码不一致" placeholder="请再输入密码" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -99,7 +69,7 @@
 										<label for="username"> 姓名</label>
 									</div>
 									<div class="field">
-										<input type="text" class="input" id="regUserName" name="regUserName" data-validate="required:必填" placeholder="你的真实姓名" required/>
+										<input type="text" class="input" id="regUserName" name="regUserName" data-validate="required:必填" placeholder="你的真实姓名"/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -114,10 +84,10 @@
 									<button class="button border-sub regBtn" name="reg" type="submit">注册</button>
 								</div>
 							</form>
-						</div>
-					</div>
+					
 				</div>
-				<!-- 注册窗口结束 -->
+				<hr>
+				<div class="team radius">呐呐团队</div>
 			</div>
 		</div>
 	</div>

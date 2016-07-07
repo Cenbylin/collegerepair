@@ -17,9 +17,8 @@
 .form-group .input{
 	width: 100%;
 }
-.form-button button{
+.login .form-button button{
 	width: 49%;
-	display: inline-block;
 }
 .team{
 	display: inline-block;
@@ -30,4 +29,7 @@
 	float: right;
 	line-height: 12px;
 	padding: 2px;
+}
+.regBtn{
+	width: 100%;
 }
