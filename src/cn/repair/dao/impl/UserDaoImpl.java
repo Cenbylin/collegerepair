@@ -131,7 +131,32 @@ public class UserDaoImpl implements UserDao{
 		}
 		return msg;
 	}
-	
+	/**
+	 * 查询所有管理员--不分页
+	 */
+	@SuppressWarnings("unchecked")
+	public List<User> queryAllManager(){
+		SessionFactory factory = DaoFactory.getSessionFactory();
+		Session session = null;
+		try {
+			session = factory.openSession();
+			//查询
+			List<User> users = session.createQuery("from User user where user.userManager=?")
+					.setParameter(0, 1)
+					.list();
+			return users;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				if (session.isOpen()) {
+					// 关闭session
+					session.close();
+				}
+			}
+		}
+		return null;
+	}
 	/**
 	 * 查询所有管理员--分页
 	 */

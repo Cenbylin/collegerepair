@@ -4,8 +4,8 @@
 	<title>校园保修系统</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="./css/pintuer.css">
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/pintuer.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
 	<script type="text/javascript" src="js/pintuer.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
@@ -26,6 +26,7 @@
 							$.post(postUrl,param,function(data){
 								if(data.state){
 									//执行跳转
+									window.location.href="addRepair.jsp";
 								}else{
 									layer.msg(data.msg);
 								}
@@ -64,7 +65,7 @@
 					</form>
 				</div>
 				<hr>
-				<div class="team radius">呐呐团队</div>
+				<div class="team radius">买买提高校服务</div>
 				<!-- 注册窗口开始 -->
 				<div id="reg">
 					<div class="dialog">

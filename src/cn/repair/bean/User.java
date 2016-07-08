@@ -111,4 +111,9 @@ public class User implements java.io.Serializable {
 		this.userManager = userManager;
 	}
 
+	@Override
+	public String toString() {
+		return userPhone;
+	}
+
 }

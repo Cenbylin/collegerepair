@@ -22,6 +22,10 @@ public interface UserDao {
 	 */
 	public List<User> queryAllManager(final int pageSize,final int pageNum);
 	/**
+	 * 查询所有管理员--不分页
+	 */
+	public List<User> queryAllManager();
+	/**
 	 * 查询所有用户--分页
 	 */
 	public List<User> queryAllUser(final int pageSize,final int pageNum);

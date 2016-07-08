@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-body>
+	<!-- 短信平台的授权接口 -->
+	<sms>
+		<ACCOUNT_SID>8a216da855c3903f0155c440df6c0202</ACCOUNT_SID><!--wx8c55fce7826fb05e-->
+		<AUTH_TOKEN>b69e8f1e8e1b4dfaa816a2d0f2b7211a</AUTH_TOKEN><!--888c529334f7b0f02758f0c310f5b8ae-->
+		<APP_ID>8a216da855c3903f0155c440dfd40208</APP_ID><!--888c529334f7b0f02758f0c310f5b8ae-->
+	</sms>
+</xml-body>

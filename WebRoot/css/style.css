@@ -1,3 +1,32 @@
+.meun{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 30%;
+	height: 100%;
+	border-right: 1px solid #ccc;
+}
+.nav-main a{
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+}
+.nav{
+	margin-top: 30px;
+}
+.nav li{
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+}
+.contain{
+	padding: 10px;
+	width: 70%;
+}
+.contain .title{
+	margin: 10px auto;
+}
 .tab{
 	padding: 5px;
 }

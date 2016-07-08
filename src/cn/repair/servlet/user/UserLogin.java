@@ -46,7 +46,6 @@ public class UserLogin extends HttpServlet {
 				//登陆成功
 				request.getSession().setAttribute("loginUser", loginUser);
 				res.put("state", true);
-				res.put("msg", "参数有误");
 			}else{
 				//登陆失败
 				res.put("state", false);

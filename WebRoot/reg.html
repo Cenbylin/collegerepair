@@ -23,7 +23,8 @@
 							$.post(postUrl,param,function(data){
 								if(data.state){
 									//执行跳转
-									
+									layer.msg("注册成功~");
+									window.location.href="addRepair.jsp";
 								}else{
 									layer.msg(data.msg);
 								}
@@ -87,7 +88,7 @@
 					
 				</div>
 				<hr>
-				<div class="team radius">呐呐团队</div>
+				<div class="team radius">买买提高校服务</div>
 			</div>
 		</div>
 	</div>
