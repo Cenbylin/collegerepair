@@ -6,6 +6,7 @@ import cn.repair.bean.RepairItem;
 import cn.repair.bean.RepairLog;
 import cn.repair.bean.User;
 import cn.repair.core.DaoFactory;
+import cn.repair.core.sms.RepairNotice;
 import cn.repair.dao.RepairItemDao;
 import cn.repair.utils.Constants;
 import cn.repair.utils.Pager;
@@ -99,6 +100,9 @@ public class RepairItemService {
 			bean.setItemTime(TimeUtil.getCurrTime(TimeUtil.Y_M_D_H_M));
 			RepairItemDao repairItemDao = DaoFactory.getRepairItemDao();
 			msg = repairItemDao.addRepairItem(bean);
+			//群发短信
+			RepairNotice repairNotice = RepairNotice.getInstance();
+			repairNotice.sendRepairNotice(bean);
 		}else {
 			msg = "未登陆";
 		}
