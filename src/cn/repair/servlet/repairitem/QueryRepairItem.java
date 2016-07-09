@@ -26,19 +26,33 @@ public class QueryRepairItem extends HttpServlet {
 			throws ServletException, IOException {
 		//获得参数
 		Pager pager = new Pager();//分页
-		pager.setPageNumber(Integer.valueOf(request.getParameter("pageNum")));
+		//获得分页参数
+		int pageNum=1;
+		try {
+			pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		} catch (Exception e) {}
+		
+		pager.setPageNumber(pageNum);
 		RepairItem bean = new RepairItem();//查询对象
 		bean.setItemAddress(request.getParameter("itemAddress"));
 		bean.setItemDesc(request.getParameter("itemDesc"));
 		bean.setItemPhone(request.getParameter("itemPhone"));
-		bean.setItemType(Integer.parseInt(request.getParameter("itemType")));
+		//获取类型参数
+		int itemType=-1;
+		try {
+			pageNum = Integer.parseInt(request.getParameter("itemType"));
+		} catch (Exception e) {}
 		
+		if (itemType!=-1) {
+			bean.setItemType(itemType);
+		}
+		bean.setItemState(null);
 		//执行查询
 		RepairItemService userService = RepairItemService.getInstance();
 		userService.queryAllItems(pager, bean, (User)request.getSession().getAttribute("loginUser"));
 		
 		request.setAttribute("pager", pager);
-		MVCControler.doRoute("repairItemList.jsp", request, response);
+		MVCControler.doRoute("repairAllList.jsp", request, response);
 	}
 
 }

@@ -31,7 +31,7 @@ public class RepairItemService {
 	public String doneRepairItem(int itemId, User loginUser){
 		String msg = "";
 		//判断用户权限
-		if(loginUser!=null && loginUser.getUserManager()==Constants.USER_ROLE_MANAGER){
+		if(loginUser!=null && loginUser.getUserManager().intValue()==Constants.USER_ROLE_MANAGER){
 			RepairItemDao repairItemDao = DaoFactory.getRepairItemDao();
 			RepairItem bean = repairItemDao.queryRepairItemById(itemId);
 			if (bean!=null) {
@@ -62,7 +62,7 @@ public class RepairItemService {
 	public String disposeRepairItem(int itemId, User loginUser){
 		String msg = "";
 		//判断用户权限
-		if(loginUser!=null && loginUser.getUserManager()==Constants.USER_ROLE_MANAGER){
+		if(loginUser!=null && loginUser.getUserManager().intValue()==Constants.USER_ROLE_MANAGER){
 			RepairItemDao repairItemDao = DaoFactory.getRepairItemDao();
 			RepairItem bean = repairItemDao.queryRepairItemById(itemId);
 			if (bean!=null) {
@@ -72,7 +72,7 @@ public class RepairItemService {
 				//日志记录
 				RepairLog repairLog = new RepairLog();
 				repairLog.setRepairItem(bean);
-				repairLog.setLogMsg("已经由 "+loginUser.getUserName()+"受理");
+				repairLog.setLogMsg("已经由 "+loginUser.getUserName()+" 受理");
 				repairLog.setLogType(Constants.LOGTYPE_STATE);
 				RepairLogService repairLogService = RepairLogService.getInstance();
 				msg += repairLogService.addRepairLog(repairLog, loginUser);
@@ -113,7 +113,7 @@ public class RepairItemService {
 	 */
 	public Pager queryAllItems(Pager pager, RepairItem bean, User loginUser) {
 		//判断是否登陆，并且是管理员
-		if(loginUser!=null && loginUser.getUserManager()==Constants.USER_ROLE_MANAGER){
+		if(loginUser!=null && loginUser.getUserManager().intValue()==Constants.USER_ROLE_MANAGER){
 			RepairItemDao repairItemDao = DaoFactory.getRepairItemDao();
 			//分页查询
 			List<RepairItem> repairItems = repairItemDao.queryRepairItemByCondition(bean, pager.getPageSize(), pager.getPageNumber());
@@ -121,6 +121,23 @@ public class RepairItemService {
 		}
 		return pager;
 	}
+	
+	/**
+	 * id查询项目
+	 * @param pager
+	 * @param bean
+	 * @param loginUser
+	 */
+	public RepairItem queryItemById(int id, User loginUser) {
+		//判断是否登陆，并且是管理员
+		if(loginUser!=null){
+			RepairItemDao repairItemDao = DaoFactory.getRepairItemDao();
+			//id查询
+			return repairItemDao.queryRepairItemById(id);
+		}
+		return null;
+	}
+	
 	public Pager queryUserItems(Pager pager, User loginUser) {
 		//判断是否登陆
 		if(loginUser!=null){

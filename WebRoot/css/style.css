@@ -10,15 +10,28 @@
 	border-left: 0px;
 	border-right: 0px;
 	border-bottom: 0px;
+	float: left;
+	width: 100%;
 }
 .nav{
 	margin-top: 30px;
 }
+.list a{
+	width: 62%;
+	border-top: 0px;
+	border-bottom: 0px;
+}
+
+.list>div{
+	border-top: 1px solid #ccc;
+	overflow: hidden;
+}
 .nav li{
-	width: 100%;
+	width: 90%;
 	height: 40px;
 	text-align: center;
 	line-height: 40px;
+	float: left;
 }
 .contain{
 	padding: 10px;
@@ -26,6 +39,7 @@
 }
 .contain .title{
 	margin: 10px auto;
+	color: green;
 }
 .tab{
 	padding: 5px;
@@ -61,4 +75,24 @@
 }
 .regBtn{
 	width: 100%;
+}
+.rec-btn{
+	margin-top: 4px;
+}
+.ItemLogList .date{
+	text-align: left;
+	font-size: 12px;
+}
+.ItemLogList .prog{
+	text-align: center;
+}
+.ItemLogList li{
+	padding: 5px;
+}
+.repIfo td{
+	text-align: center;
+	vertical-align: middle;
+}
+.psw{
+	top: 10px;
 }

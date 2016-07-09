@@ -61,7 +61,7 @@ public class RepairLogDaoImpl implements RepairLogDao {
 		try {
 			session = factory.openSession();
 			//查询
-			List<RepairLog> logs = session.createQuery("from RepairLog where itemId=? order by id desc")
+			List<RepairLog> logs = session.createQuery("from RepairLog where repairItem.itemId=? order by id desc")
 					.setParameter(0, itemId)
 					.list();
 			return logs;

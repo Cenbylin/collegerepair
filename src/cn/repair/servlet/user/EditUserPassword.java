@@ -30,14 +30,13 @@ public class EditUserPassword extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//获取参数
-		String userAccount = request.getParameter("userAccount");
 		String oldPassword = request.getParameter("oldPassword");
 		String newPassword = request.getParameter("newPassword");
 		//更新
 		UserService userService = UserService.getInstance();
-		String res = userService.editPassword(userAccount, oldPassword, newPassword, (User)request.getSession().getAttribute("loginUser"));
+		String res = userService.editPassword(oldPassword, newPassword, (User)request.getSession().getAttribute("loginUser"));
 		Map<String, Object> resMap = new HashMap<String, Object>();
-		if (StringUtils.isNotEmpty(res)) {
+		if (StringUtils.isEmpty(res)) {
 			resMap.put("state", true);
 		}else{
 			resMap.put("state", false);

@@ -18,6 +18,7 @@ public class QueryUserItem extends HttpServlet {
 			throws ServletException, IOException {
 		doPost(request, response);
 	}
+	
 	/**
 	 * 报修查询
 	 */
@@ -25,13 +26,17 @@ public class QueryUserItem extends HttpServlet {
 			throws ServletException, IOException {
 		//获得参数
 		Pager pager = new Pager();//分页
-		pager.setPageNumber(Integer.valueOf(request.getParameter("pageNum")));
+		//获得分页参数
+		int pageNum=1;
+		try {
+			pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		} catch (Exception e) {}
+		pager.setPageNumber(pageNum);
 		//执行查询
 		RepairItemService userService = RepairItemService.getInstance();
 		userService.queryUserItems(pager, (User)request.getSession().getAttribute("loginUser"));
 		
-		
 		request.setAttribute("pager", pager);
-		MVCControler.doRoute("repairItemList.jsp", request, response);
+		MVCControler.doRoute("repairMyList.jsp", request, response);
 	}
 }

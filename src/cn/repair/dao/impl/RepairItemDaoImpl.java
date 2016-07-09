@@ -98,7 +98,9 @@ public class RepairItemDaoImpl implements RepairItemDao{
 				dc.add(Restrictions.eq("itemState", repairItem.getItemState()));
 			}
 			//其他条件
-			List<RepairItem> items = dc.setFetchSize(pageSize*(pageNum-1)).setMaxResults(pageSize).addOrder(Property.forName("itemId").desc()).list();
+			List<RepairItem> items = dc.setFirstResult(pageSize*(pageNum-1))
+					.setMaxResults(pageSize)
+					.addOrder(Property.forName("itemId").desc()).list();
 			return items;
 		} catch (Exception e) {
 			e.printStackTrace();

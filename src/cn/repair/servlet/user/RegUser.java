@@ -34,12 +34,17 @@ public class RegUser extends HttpServlet {
 		String userName = request.getParameter("regUserName");
 		String userPassword = request.getParameter("regUserPassword");
 		String userPhone = request.getParameter("regUserPhone");
+		int userSex=1;
+		try {
+			userSex = Integer.parseInt(request.getParameter("userSex"));
+		} catch (Exception e) {}
 		//封装参数
 		User user = new User();
 		user.setUserAccount(userAccount);
 		user.setUserPassword(userPassword);
 		user.setUserName(userName);
 		user.setUserPhone(userPhone);
+		user.setUserSex(userSex);
 		UserService userService = UserService.getInstance();
 		//更新操作
 		String res = userService.addUser(user);

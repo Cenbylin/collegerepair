@@ -66,7 +66,7 @@ public class UserService {
 	public String updateUser(User user, User loginUser){
 		String msg = "";
 		UserDao userDao = DaoFactory.getUserDao();
-		User bean = userDao.getUserById(user.getUserId());
+		User bean = userDao.getUserById(loginUser.getUserId());
 		//判断身份
 		if(bean!=null && (bean.getUserId() == loginUser.getUserId() || loginUser.getUserManager()==Constants.USER_ROLE_MANAGER)){
 			//重设属性
@@ -77,6 +77,16 @@ public class UserService {
 			msg = userDao.updateUser(bean);
 		}
 		return msg;
+	}
+	/**
+	 * 根据Id获得用户
+	 * @param id
+	 * @param loginUser
+	 * @return
+	 */
+	public User getUserById(int id){
+		UserDao userDao = DaoFactory.getUserDao();
+		return userDao.getUserById(id);
 	}
 	
 	/**
@@ -98,19 +108,21 @@ public class UserService {
 	 * @param loginUser
 	 * @return
 	 */
-	public String editPassword(String userAccount, String oldPassword, String newPassword, User loginUser){
+	public String editPassword(String oldPassword, String newPassword, User loginUser){
 		String msg = "";
 		UserDao userDao = DaoFactory.getUserDao();
 		User bean = new User();
-		bean.setUserAccount(userAccount);
+		bean.setUserAccount(loginUser.getUserAccount());
 		bean.setUserPassword(oldPassword);
 		//验证账号密码
 		bean = userDao.queryUserByAccountAndPwd(bean);
 		//判断身份
-		if(bean!=null && (bean.getUserId() == loginUser.getUserId() || loginUser.getUserManager()==Constants.USER_ROLE_MANAGER)){
+		if(bean!=null && bean.getUserId().intValue() == loginUser.getUserId().intValue()){
 			//重设属性
 			bean.setUserPassword(newPassword);
 			msg = userDao.updateUser(bean);
+		}else{
+			msg = "无权限";
 		}
 		return msg;
 	}

@@ -30,24 +30,30 @@ public class UpdateUser extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//获取参数
-		int userId = Integer.parseInt(request.getParameter("userId"));
 		String userName = request.getParameter("userName");
-		int userSex = Integer.parseInt(request.getParameter("sex"));
+		int userSex = 1;
+		try {
+			userSex = Integer.parseInt(request.getParameter("sex"));
+		} catch (Exception e) {}
+		
 		String userPhone = request.getParameter("userPhone");
 		String userAddress = request.getParameter("userAddress");
 		//封装参数
 		User user = new User();
-		user.setUserId(userId);
 		user.setUserAddress(userAddress);
 		user.setUserName(userName);
 		user.setUserPhone(userPhone);
 		user.setUserSex(userSex);
 		UserService userService = UserService.getInstance();
 		//更新操作
-		String res = userService.updateUser(user, (User)request.getSession().getAttribute("loginUser"));
+		User loginUser = (User)request.getSession().getAttribute("loginUser");
+		String res = userService.updateUser(user, loginUser);
 		Map<String, Object> resMap = new HashMap<String, Object>();
-		if (StringUtils.isNotEmpty(res)) {
+		if (StringUtils.isEmpty(res)) {
 			resMap.put("state", true);
+			//重设session
+			loginUser = userService.getUserById(loginUser.getUserId());
+			request.getSession().setAttribute("loginUser", loginUser);
 		}else{
 			resMap.put("state", false);
 			resMap.put("msg", res);

@@ -50,7 +50,11 @@ public class RepairNotice {
 		sb.append(managers.get(i).getUserPhone());*/
 		
 		//群发
-		restAPI.sendTemplateSMS(phones,"1" ,new String[]{"","嗨"});
+		restAPI.sendTemplateSMS(phones,"1" ,
+				new String[]{repairItem.getUser().getUserName(),
+				repairItem.getItemAddress(),
+				repairItem.getItemDesc(),
+				repairItem.getUser().getUserPhone()});
 	}
 	
 }
