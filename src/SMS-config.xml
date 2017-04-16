@@ -2,8 +2,8 @@
 <xml-body>
 	<!-- 短信平台的授权接口 -->
 	<sms>
-		<ACCOUNT_SID></ACCOUNT_SID><!--wx8c55fce7826fb05e-->
-		<AUTH_TOKEN></AUTH_TOKEN><!--888c529334f7b0f02758f0c310f5b8ae-->
-		<APP_ID></APP_ID><!--888c529334f7b0f02758f0c310f5b8ae-->
+		<ACCOUNT_SID></ACCOUNT_SID>
+		<AUTH_TOKEN></AUTH_TOKEN>
+		<APP_ID></APP_ID>
 	</sms>
 </xml-body>
