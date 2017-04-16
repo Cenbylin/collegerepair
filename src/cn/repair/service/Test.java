@@ -22,11 +22,11 @@ public class Test {
 		//登陆
 		user = userDao.queryUserByAccountAndPwd(user);
 		//修改
-		user.setUserName("林安成");
+		user.setUserName("");
 		user.setUserManager(1);
-		user.setUserPhone("13560487066");
+		user.setUserPhone("");
 		user.setUserSex(1);
-		user.setUserAddress("中山大道西293");
+		user.setUserAddress("");
 		userDao.updateUser(user);
 		//模拟报修
 		RepairItemDao repairItemDao = DaoFactory.getRepairItemDao();
